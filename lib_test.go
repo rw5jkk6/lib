@@ -17,3 +17,20 @@ func TestSwap(t *testing.T){
 		t.Error("error")
 	}
 }
+
+func TestSwapPointa(t *testing.T){
+	actual1 := 1
+	actual2 := 2
+
+	SwapPointa(&actual1, &actual2)
+
+	expect1 := 2
+	expect2 := 1
+
+	if expect1 != actual1{
+		t.Error("error")
+	}
+	if expect2 != actual2{
+		t.Error("error")
+	}
+}
