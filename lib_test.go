@@ -5,17 +5,38 @@ import (
 )
 
 func TestSwap(t *testing.T){
-	actual1 := 2 
-	actual2 := 1
-
-	x, y := Swap(1,2)
-	if actual1 != x{
-		t.Error("error")
+	tests := []struct{
+		arg1 int
+		arg2 int
+		exp1 int
+		exp2 int
+	}{
+		{1,2,2,1},
+		{0,1,1,0},
+		{100,-1,-1,100},
+	}
+	
+	for _, tt := range tests{
+		x, y := Swap(tt.arg1, tt.arg2)
+		if tt.exp1 != x{
+			t.Error("Error")
+		}
+		if tt.exp2 != y{
+			t.Error("Error")
+		}
 	}
 
-	if actual2 != y{
-		t.Error("error")
-	}
+	// actual1 := 2 
+	// actual2 := 1
+
+	// x, y := Swap(1,2)
+	// if actual1 != x{
+	// 	t.Error("error")
+	// }
+
+	// if actual2 != y{
+	// 	t.Error("error")
+	// }
 }
 
 func TestSwapPointa(t *testing.T){
