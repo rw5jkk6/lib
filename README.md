@@ -3,30 +3,39 @@
   - リポジトリを作る
   - URLをコピーしておく
 - VScodeでの操作  
+  - フォルダを作る。名前は何でもいい
   - リポジトリを初期化する。一番左のアクティビティバーから作る
-  - go mod init github.com/username/repo (ここきちんと書かないとダウンロードできない)
+  - ターミナルで `go mod init github.com/username/repo` (ここきちんと書かないとダウンロードできない。`.git`はつけない)
   - go mod tidy
   - コードを書く(関数は頭は大文字)
+  - モジュールはmain.goがないのでテストを書く
   - git add (ステージングは + を押す)
   - git commit (コメントを入れて ctrl + enter)
-  - コマンドパレットから git add remote　(リモートの追加。gitを作っておかないと出てこない)
+  - コマンドパレットから git add remote　(リモートの追加。gitリポジトリを作っておかないと出てこない)
   - GithubのリポジトリのURLを貼り付ける。リモート名は\[origin]にしておく
   - git push ソース管理ビューの...をクリックしてメニュー先の\[プッシュ先...]を選択して[origin]を選択する
+- ライブラリの使用をやめる
+  - ファイルのimportからgithubのライブラリを削除する
+  - `go mod tidy`をするとgo modファイルから削除される
 
 ## Githubライブラリの使い方
 - メインのコードを書く
 - go mod init モジュール名
-- go get github.com/username/repo
+- モジュールをダウンロードする方法は２通りあるが、`go mod tidy`を使っておけばいい
+  - go mod tidy 
+  - ~go get github.com/username/repo~
+- コードの実行
+
 ```go
 package main
  
 import (
    "fmt"
-   "github.com/rw5jkk6/add"
+   "github.com/rw5jkk6/culc"
 )
 
 func main(){
-	n := add.Add(1, 2)
+	n := culc.Add(1, 2)
 	fmt.Println(n)
 }
 ```
